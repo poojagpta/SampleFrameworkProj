@@ -1,0 +1,11 @@
+package protobufDemo;
+import "testData.proto";
+option java_package = "com.jbksoft.protobufferrpc.protobufferrpcData";
+option java_outer_classname = "MyGreetingService";
+option java_generic_services = true; //if you don't do this, protoc wont generate the stubs you need for rpc
+
+
+service Greeting //In generated class, this class is abstract class that extends service method need to extends this
+{
+    rpc sayHello(HelloRequest) returns (HelloReply);
+}

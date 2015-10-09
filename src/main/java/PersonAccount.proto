@@ -1,0 +1,31 @@
+package protobufDemo; //this is protobuf namespace, not java's
+option java_package = "com.jbksoft.protobuf.protobufferData";
+option java_outer_classname = "PersonAccountsBookProtos";
+
+message Person {
+
+ //Data Type can be anything as bool, int32, float, double, and string or user defined as AccountType
+ //= 1,2 is unique tags given. Number 1-15 required less code encoding than higher number
+ //Required--if field required, optional -0 or 1 occurrence, repeated - 0 to may occurrence
+  required string name = 1;
+  required int32 id = 2;
+  optional string email = 3;
+
+  enum  AccountType{
+    CHECKING = 0;
+    SAVING = 1;
+    VISA = 2;
+  }
+
+  message AccountNumber {
+    required string number = 1;
+    optional AccountType type = 2 [default = SAVING];
+  }
+
+
+  repeated AccountNumber  accounts= 4;
+}
+
+message PersonAccountsBook {
+  repeated Person person = 1;
+}

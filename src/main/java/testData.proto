@@ -1,0 +1,14 @@
+package protobufDemo; //this is protobuf namespace, not java's
+option java_package = "com.jbksoft.protobufferrpc.protobufferrpcData";
+option java_outer_classname = "GreetingProtos";
+
+//configuration greeting data
+message HelloRequest
+{
+  required string name = 1;
+}
+
+message HelloReply
+{
+    required string message = 1;
+}
